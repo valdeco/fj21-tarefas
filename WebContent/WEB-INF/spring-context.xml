@@ -12,8 +12,10 @@
 						http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
 	
-	<mvc:annotation-driven />
+	
 	<context:component-scan base-package="br.com.caelum.tarefas" />
+	<mvc:annotation-driven />	
+	<mvc:default-servlet-handler/>
 	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/"/>
