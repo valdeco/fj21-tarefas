@@ -4,18 +4,25 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import br.com.caelum.tarefas.modelo.Tarefa;
+import br.com.caelum.tarefas.modelo.Tarefas;
 
-public class CarregaTarefa {
+public class AtualizaTarefas {
 
 	public static void main(String[] args) {
+
+		Tarefas tarefa = new Tarefas();
+		tarefa.setId((long) 2); // esse id já existe no banco
+		tarefa.setDescricao("Amanhã é um novo dia");
+		tarefa.setFinalizado(false);
+		tarefa.setDataFinalizacao(null);
 
 		EntityManagerFactory factory = Persistence
 				.createEntityManagerFactory("tarefas");
 		EntityManager manager = factory.createEntityManager();
 
-		Tarefa encontrada = manager.find(Tarefa.class, 1L);
-		System.out.println(encontrada.getDescricao());
+		manager.getTransaction().begin();
+		manager.merge(tarefa);
+		manager.getTransaction().commit();
 
 		manager.close();
 	}

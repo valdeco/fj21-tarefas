@@ -14,7 +14,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import br.com.caelum.tarefas.modelo.Tarefa;
+import br.com.caelum.tarefas.modelo.Tarefas;
 
 @Repository
 public class JdbcTarefaDao {
@@ -29,7 +29,7 @@ public class JdbcTarefaDao {
 		}
 	}
 
-	public void adiciona(Tarefa tarefa) {
+	public void adiciona(Tarefas tarefa) {
 		String sql = "insert into tarefas (descricao, finalizado) values (?,?)";
 		PreparedStatement stmt;
 		try {
@@ -42,7 +42,7 @@ public class JdbcTarefaDao {
 		}
 	}
 
-	public void remove(Tarefa tarefa) {
+	public void remove(Tarefas tarefa) {
 
 		if (tarefa.getId() == null) {
 			throw new IllegalStateException("Id da tarefa não deve ser nula.");
@@ -59,7 +59,7 @@ public class JdbcTarefaDao {
 		}
 	}
 
-	public void altera(Tarefa tarefa) {
+	public void altera(Tarefas tarefa) {
 		String sql = "update tarefas set descricao = ?, finalizado = ?, dataFinalizacao = ? where id = ?";
 		PreparedStatement stmt;
 		try {
@@ -75,9 +75,9 @@ public class JdbcTarefaDao {
 		}
 	}
 
-	public List<Tarefa> lista() {
+	public List<Tarefas> lista() {
 		try {
-			List<Tarefa> tarefas = new ArrayList<Tarefa>();
+			List<Tarefas> tarefas = new ArrayList<Tarefas>();
 			PreparedStatement stmt = this.connection
 					.prepareStatement("select * from tarefas");
 
@@ -97,7 +97,7 @@ public class JdbcTarefaDao {
 		}
 	}
 
-	public Tarefa buscaPorId(Long id) {
+	public Tarefas buscaPorId(Long id) {
 
 		if (id == null) {
 			throw new IllegalStateException("Id da tarefa não deve ser nula.");
@@ -142,8 +142,8 @@ public class JdbcTarefaDao {
 		}
 	}
 
-	private Tarefa populaTarefa(ResultSet rs) throws SQLException {
-		Tarefa tarefa = new Tarefa();
+	private Tarefas populaTarefa(ResultSet rs) throws SQLException {
+		Tarefas tarefa = new Tarefas();
 
 		// popula o objeto tarefa
 		tarefa.setId(rs.getLong("id"));

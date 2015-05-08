@@ -14,7 +14,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import com.sun.istack.internal.NotNull;
 
 @Entity
-public class Tarefa {
+public class Tarefas {
 	@Id
 	@GeneratedValue
 	private Long id;

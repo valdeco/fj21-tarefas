@@ -9,7 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.caelum.tarefas.dao.JdbcTarefaDao;
-import br.com.caelum.tarefas.modelo.Tarefa;
+import br.com.caelum.tarefas.modelo.Tarefas;
 
 @Controller
 public class TarefasController {
@@ -27,7 +27,7 @@ public class TarefasController {
 	}
 
 	@RequestMapping("adicionaTarefa")
-	public String adiciona(@Valid Tarefa tarefa, BindingResult result) {
+	public String adiciona(@Valid Tarefas tarefa, BindingResult result) {
 		if (result.hasFieldErrors("descricao")) {
 			return "tarefa/formulario";
 		}
@@ -42,7 +42,7 @@ public class TarefasController {
 	}
 
 	@RequestMapping("removeTarefa")
-	public String remove(Tarefa tarefa) {
+	public String remove(Tarefas tarefa) {
 		dao.remove(tarefa);
 		return "redirect:listaTarefas";
 	}
@@ -54,7 +54,7 @@ public class TarefasController {
 	}
 
 	@RequestMapping("alteraTarefa")
-	public String altera(Tarefa tarefa) {
+	public String altera(Tarefas tarefa) {
 		dao.altera(tarefa);
 		return "redirect:listaTarefas";
 	}
