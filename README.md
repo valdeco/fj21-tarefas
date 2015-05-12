@@ -1,4 +1,5 @@
 # fj21-tarefas
 Repositório do curso fj21-tarefas da Caelum.
 
-# Capítulo 12.6 - finalizado...
+# Finalização do curso fj21 com JPQL.
+JPA com Hibernate. Cap. 14.13
