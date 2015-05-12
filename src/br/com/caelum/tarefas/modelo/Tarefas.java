@@ -18,10 +18,11 @@ public class Tarefas {
 	@Id
 	@GeneratedValue
 	private Long id;
-	@NotNull @Size(min=5)
+	@NotNull
+	@Size(min = 5)
 	private String descricao;
 	private boolean finalizado;
-	@Temporal(TemporalType.DATE) @DateTimeFormat(pattern="dd/MM/yyyy")
+	@Temporal(TemporalType.DATE) @DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Calendar dataFinalizacao;
 
 	public Long getId() {

@@ -12,7 +12,7 @@ public class AtualizaTarefas {
 
 		Tarefas tarefa = new Tarefas();
 		tarefa.setId((long) 2); // esse id já existe no banco
-		tarefa.setDescricao("Amanhã é um novo dia");
+		tarefa.setDescricao("Amanhã é terça-feira");
 		tarefa.setFinalizado(false);
 		tarefa.setDataFinalizacao(null);
 
